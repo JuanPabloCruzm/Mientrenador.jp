@@ -1,103 +1,44 @@
 style.css
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #f0fdf4, #e0e7ff);
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #2e2e2e; /* Gris oscuro */
+  color: #f0f0f0; /* Letras claras */
   margin: 0;
-  padding: 40px;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
   text-align: center;
-  color: #1e293b;
+  background: rgba(0, 0, 0, 0.4); /* Leve transparencia */
+  border-radius: 10px;
 }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  color: #2563eb;
-}
-
-p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-form {
-  margin-bottom: 30px;
-}
-
-input {
+input, select, button {
+  width: 100%;
   padding: 10px;
-  margin: 5px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
   font-size: 1em;
-  border: 2px solid #94a3b8;
-  border-radius: 6px;
-  width: 200px;
 }
 
 button {
-  background-color: #ec4899;
+  background-color: #ff5252;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #be185d;
+  background-color: #e04848;
 }
 
-#resultado {
-  font-size: 1.5em;
-  color: #059669;
-  font-weight: bold;
-  margin-top: 20px;
-}
-@media screen and (max-width: 600px) {
-  background-image: url('DUhkb8EFqM7zX53mxDvVy.png');
-background-size: cover;
-background-attachment: fixed;
-background-position: center;
-
-    padding: 20px;
-  }
-
-  input {
-    width: 100%;
-  }
-
-  button {
-    width: 100%;
-  }
-}
-body {body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* nivel de oscurecimiento */
-  z-index: -1;
-}
-
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #f9fafb, #e0f7fa);
-  background-attachment: fixed;
-  background-size: cover;
-  padding: 40px;
-  text-align: center;
-  color: #1e293b;
-}
-background-image: url('img/DUhkb8EFqM7zX53mxDvVy.png');
-body {
-  background-image: url('https://images.unsplash.com/photo-1571019613914-85f342c1d4f1');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-}
-body {
-  background-image: url('https://tse1.explicit.bing.net/th/id/OIP.UdthscM8d7fsJ8vc5HzNmwHaEa?rs=1&pid=ImgDetMain&o=7&rm=3');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  background-attachment: fixed;
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
 }
