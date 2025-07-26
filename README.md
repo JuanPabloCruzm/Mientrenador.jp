@@ -1,13 +1,11 @@
-# Asistente Deportivo – Juan Pablo Cruz
-
-Web app que te guía paso a paso:
-
-- Acceso protegido con código que tú manejas.  
-- Pide tu nombre y datos (peso, altura, edad, sexo, actividad, meta).  
-- 11 deportes con sus desafíos.  
-- Base de 60 comidas sanas.  
-- Recomienda 7 comidas diarias según tu TDEE.  
-- Plan de entrenamiento específico.
-
-## Estructura
-
+asistentedeportivojpc/
+├── index.html         # Página principal con formulario y resultados
+├── login.html         # Acceso protegido con clave TrinidadForever
+├── style.css          # Estilos visuales (colores, disposición)
+├── script.js          # Lógica completa: cálculos, comidas, entrenos
+├── meals.js           # Base de datos con 60 comidas (desayuno, almuerzo, cena)
+├── recommend.js       # Lógica para sugerir comidas según tus datos
+├── README.md          # Documento explicativo del proyecto
+└── assets/
+    ├── fox-logo.png   # Logo del zorro para ícono y redes
+    └── favicon.ico    # Ícono para pestaña del navegador
