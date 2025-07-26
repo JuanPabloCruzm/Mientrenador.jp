@@ -12,54 +12,40 @@ function calcularIMC() {
     let recomendaciones = "";
     let fondo = "";
 
-    // Clasificación IMC
     if (imc < 18.5) {
       categoria = "Bajo peso";
-      recomendaciones = "🍗 Dieta hipercalórica + 🏋️‍♀️ fuerza moderada";
+      recomendaciones = "💡 Aumenta tu ingesta calórica + entrenamiento de fuerza suave.";
     } else if (imc < 24.9) {
       categoria = "Peso normal";
-      recomendaciones = "🥗 Mantener con dieta equilibrada + 🚶‍♂️ actividad física regular";
+      recomendaciones = "✅ Mantén hábitos activos y dieta balanceada.";
     } else if (imc < 29.9) {
       categoria = "Sobrepeso";
-      recomendaciones = "⚖️ Reducir azúcar/grasas + 🧘‍♀️ actividad aeróbica suave";
+      recomendaciones = "🔥 Reduce ultraprocesados + ejercicio cardiovascular moderado.";
     } else {
       categoria = "Obesidad";
-      recomendaciones = "📋 Consulta médica + 🧍‍♂️ caminatas diarias";
+      recomendaciones = "📋 Revisión profesional + caminatas diarias + hábitos graduales.";
     }
 
-    // Recomendaciones según objetivo
     switch (objetivo) {
       case "ganar_masa":
-        recomendaciones += "\n\n🧬 Objetivo: Ganar masa\n🥚 Proteínas magras, 🧱 fuerza 3-5x/semana, 💤 sueño reparador.";
-        fondo = "url('URL_MUSCULAR')";
+        fondo = "#3e3e3e"; recomendaciones += "\n🧬 Rutina de fuerza + proteínas magras.";
         break;
       case "perder_grasa":
-        recomendaciones += "\n\n🔥 Objetivo: Perder grasa\n🥦 Vegetales + 🚴‍♂️ cardio + 🧘‍♂️ reducción de cortisol.";
-        fondo = "url('URL_QUEMA')";
+        fondo = "#444"; recomendaciones += "\n🔥 Cardio + control glucémico + descanso.";
         break;
       case "mejorar_resistencia":
-        recomendaciones += "\n\n💨 Objetivo: Resistencia\n🚴 Ciclismo/natación + 🍌 carbohidratos complejos + 💧 hidratación.";
-        fondo = "url('URL_MTB')";
+        fondo = "#555"; recomendaciones += "\n🚴 Ejercicio continuo + hidratación + ritmo.";
         break;
       case "aumentar_peso":
-        recomendaciones += "\n\n🍠 Objetivo: Aumentar peso\n🥜 Snacks densos + 🍚 arroz/quinoa + 🏋️ descanso estratégico.";
-        fondo = "url('URL_AUMENTO')";
+        fondo = "#666"; recomendaciones += "\n🍠 Alimentos densos + entreno + recuperación.";
         break;
-      default:
-        recomendaciones += "\n🎯 Selecciona un objetivo válido para recomendaciones personalizadas.";
     }
 
-    // Mostrar resultado
     document.getElementById("resultado").innerText =
-      `📊 Tu IMC es ${imc} — ${categoria}\n🧍 Edad: ${edad} | ⚧ Sexo: ${sexo}\n\n🔍 Recomendaciones:\n${recomendaciones}`;
-
-    // Estilo dinámico según objetivo
-    document.body.style.backgroundImage = fondo;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundPosition = "center";
+      `📊 IMC: ${imc} — ${categoria}\n🎯 Recomendación: ${recomendaciones}`;
+    document.body.style.backgroundColor = fondo;
   } else {
     document.getElementById("resultado").innerText =
-      "⚠️ Completa todos los datos para obtener tu diagnóstico narrativo.";
+      "⚠️ Completa todos los campos para tu diagnóstico.";
   }
 }
