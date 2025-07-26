@@ -1,226 +1,91 @@
-// Ajusta los retos según la disciplina seleccionada
-function actualizarRetos() {
-  const d = document.getElementById("disciplina").value;
-  const reto = document.getElementById("reto");
-  const natInputs = document.getElementById("natacionInputs");
-  reto.innerHTML = "<option value=''>Desafío</option>";
-  natInputs.classList.add("hidden");
+import { getRecommendedMeals } from './recommend.js';
 
-  const desafios = {
-    MTB:       ["Enduro", "DH", "XC"],
-    Atletismo:["400m", "4×100m Relevos", "Maratón"],
-    Natacion: ["Resistencia"],
-    Yoga:     ["Hatha", "Vinyasa", "Ashtanga"],
-    Crossfit: ["AMRAP 20", "Fran", "Murph"],
-    Futbol:   ["Partido 5v5", "Tiros a portería", "Resistencia con balón"],
-    Baloncesto: ["Tiros libres", "Dribling", "3v3"],
-    CiclismoRuta: ["Contrarreloj", "Gran Fondo", "Sprint final"],
-    Boxeo:    ["Sombra", "Sparring", "Trabajo en saco"],
-    Pilates:  ["Matwork", "Reformer", "Pilates Avanzado"],
-    Escalada: ["Boulder", "Vía de 20m", "Circuito de resistencia"],
-    Triatlon: ["Sprint", "Olímpico", "Half Ironman"]
-  };
+const workouts = {
+  MTB:       ["2h trail Enduro", "10 descensos DH", "5×4km XC a ritmo"],
+  Atletismo:["6×400m series", "4×100m relevos", "Tirada larga 12km"],
+  Natacion:["20×50m crol", "4×200m resistencia", "15min técnica de patada"],
+  Yoga:     ["30min Vinyasa", "45min Hatha", "Serie Ashtanga I"],
+  Crossfit: ["AMRAP 20", "Fran 21-15-9", "Murph modificado"],
+  Futbol:   ["Partido 5v5", "30min tiros a portería", "Circuito de pases"],
+  Baloncesto:["20min dribling", "50 tiros libres", "Partido 3v3"],
+  CiclismoRuta:["Contrarreloj 10km", "Gran Fondo 80km", "Sprint series"],
+  Boxeo:    ["5×3min sombra", "3×3min saco", "5×2min cuerda"],
+  Pilates:  ["Matwork 45min", "Reformer 30min", "Pilates Avanzado"],
+  Escalada: ["6 boulders", "Vía 20m", "Core y antebrazos"],
+  Triatlon: ["Sprint brick", "Olímpico combinado", "Half Ironman prep"]
+};
 
-  if (desafios[d]) {
-    desafios[d].forEach(r => {
-      reto.innerHTML += `<option value="${r}">${r}</option>`;
-    });
-    if (d === "Natacion") natInputs.classList.remove("hidden");
-  }
-}
+document.addEventListener('DOMContentLoaded',()=>{
+  const form     = document.getElementById('metricsForm');
+  const planC    = document.getElementById('planContainer');
+  const mealUL   = document.getElementById('mealPlan');
+  const workUL   = document.getElementById('workoutPlan');
+  const greet    = document.getElementById('greeting');
+  const planG    = document.getElementById('planGreeting');
+  const selDep   = document.getElementById('disciplina');
+  const selRet   = document.getElementById('reto');
+  const natDiv   = document.getElementById('natacionInputs');
 
-// Genera el plan completo
-function procesar() {
-  const peso   = parseFloat(document.getElementById("peso").value);
-  const altura = parseFloat(document.getElementById("altura").value);
-  const edad   = parseInt  (document.getElementById("edad").value);
-  const sexo   = document.getElementById("sexo").value;
-  const d      = document.getElementById("disciplina").value;
-  const r      = document.getElementById("reto").value;
-  const dist   = parseFloat(document.getElementById("distanciaNat").value);
-  const tiempo = document.getElementById("tiempoNat").value;
-  const disgustosStr = document.getElementById("disgustos").value;
-  const gustosStr    = document.getElementById("gustos").value;
-
-  if (!peso || !altura || !edad || !sexo || !d || !r) {
-    return showResult("⚠️ Completa todos los campos para recibir tu plan.");
-  }
-
-  // Cálculo de IMC y rango ideal
-  const imc = +(peso / (altura * altura)).toFixed(2);
-  const min = +(18.5 * altura * altura).toFixed(1);
-  const max = +(24.9 * altura * altura).toFixed(1);
-
-  // Mensaje base de nutrición
-  let foodMsg = "";
-  if (imc < 18.5)      foodMsg = "➡️ Bajo peso. Enfócate en ganancia de masa y fuerza.";
-  else if (imc <= 24.9)foodMsg = "➡️ Peso ideal. Mantén estos hábitos.";
-  else                 foodMsg = "➡️ Sobrepeso. Trabajaremos con déficit moderado y cardio.";
-
-  // Plan para ajustar peso
-  let pesoPlan = "";
-  if (imc < 18.5) {
-    pesoPlan =
-      `Para llegar a ${min} kg:\n` +
-      "- +500 kcal/día con snacks de alta densidad.\n" +
-      "- Fuerza 3×semana.\n";
-  } else if (imc > 24.9) {
-    pesoPlan =
-      `Para llegar a ${max} kg:\n` +
-      "- -300/500 kcal/día.\n" +
-      "- Cardio 4×semana (30–45 min).\n";
-  } else {
-    pesoPlan = "¡Excelente! Sigue con tu rutina y alimentación equilibrada.";
-  }
-
-  // Plan deportivo según deporte y desafío
-  let deportivo = "";
-  switch (d) {
-    case "MTB":
-      if (r === "Enduro")
-        deportivo = "🚵 2h trail técnico + subidas intensas.\n🏋️ Sentadillas 4×8, core 4×20.";
-      if (r === "DH")
-        deportivo = "🚵 8 bajadas técnicas.\n🏋️ Pliometría 3×12, hombros 3×15.";
-      if (r === "XC")
-        deportivo = "🚵 Ruta 1.5h a cadencia constante.\n🏋️ Zancadas 4×10, peso muerto 3×8.";
-      break;
-
-    case "Atletismo":
-      if (r === "400m")
-        deportivo = "🏃 Calentamiento 15min + 6×200m a VO2.\n🏋️ Explosivos 3×8.";
-      if (r === "4×100m Relevos")
-        deportivo = "🏃 4×100m con testigo.\n🤸 Agilidad escalera 4×3.";
-      if (r === "Maratón")
-        deportivo = "🏃 60–90min al 70% FCM.\n🏋️ Piernas 3×12, core 3×20.";
-      break;
-
-    case "Natacion":
-      const [mm, ss] = tiempo.split(":").map(Number);
-      const totMin = mm + ss/60;
-      const pace = ((totMin / dist) * 100).toFixed(2);
-      deportivo =
-        `🏊 10×100m (20s rec).\n📊 Ritmo: ${pace} min/100m.\n` +
-        "🚀 Estilos: crol (eficiente), braza (recup), mariposa (aeróbico).\n" +
-        "🏋️ Jalón espalda 3×10, hombros 3×12.";
-      break;
-
-    case "Yoga":
-      deportivo =
-        "🧘 60min Vinyasa fluido.\n🤸‍♂️ Transiciones suaves y respiración Ujjayi.\n" +
-        "✨ 10min de meditación final.";
-      break;
-
-    case "Crossfit":
-      deportivo =
-        "🔥 WOD ‘Fran’: 21-15-9 Thruster + Pull-ups.\n💪 Movilidad 15min.";
-      break;
-
-    case "Futbol":
-      deportivo =
-        "⚽️ Partido 5v5 (45min).\n🏃 Sprints 10×30m con balón.\n🎯 Circuito de pases.";
-      break;
-
-    case "Baloncesto":
-      deportivo =
-        "🏀 5×20 tiros libres.\n⛹️ Dribling en zigzag 4×2min.\n🏃 Partido 3v3 20min.";
-      break;
-
-    case "CiclismoRuta":
-      deportivo =
-        "🚴 Contrarreloj 20km a máxima cadencia.\n🚵 Gran Fondo 80km al 75% FCM.\n🏁 Series de sprint: 6×200m.";
-      break;
-
-    case "Boxeo":
-      deportivo =
-        "🥊 5×3min sombra + 3×3min saco.\n🤜 Combos:  jab-cross 4×20.\n🏃🏼 Saltar la cuerda 5×2min.";
-      break;
-
-    case "Pilates":
-      deportivo =
-        "🤸 Matwork 45min: hundred, roll-up, single leg stretch.\n✴️ Reformer básico 30min.";
-      break;
-
-    case "Escalada":
-      deportivo =
-        "🧗 Boulder 6 problemas fac. media.\n🧗‍♂️ Vía 20m con presas pequeñas.\n🏋️ Core+antebrazos 3×15.";
-      break;
-
-    case "Triatlon":
-      deportivo =
-        "🚴 20km ruta + 🏊 800m + 🏃 5km transición rápida.\n🔄 Entreno brick 3×semana.";
-      break;
-  }
-
-  // Procesa gustos y disgustos para comidas
-  const parseList = s =>
-    s.split(",").map(x=>x.trim().toLowerCase()).filter(x=>x);
-
-  const dislikes = parseList(disgustosStr);
-  const likes    = parseList(gustosStr);
-
-  const meals = [
-    // recommend.js
-import { meals } from './meals.js';
-
-/**
- * Calcula TDEE usando Mifflin-St Jeor y ajusta según meta.
- */
-function calculateTDEE({ weight, height, age, sex, activityFactor, goal }) {
-  const s = sex === 'M' ? 5 : -161;
-  const bmr = 10 * weight + 6.25 * (height * 100) - 5 * age + s;
-  let tdee = bmr * activityFactor;
-  if (goal === 'perder') tdee -= 500;
-  if (goal === 'ganar')  tdee += 500;
-  return Math.round(tdee);
-}
-
-/**
- * Devuelve 7 comidas diarias cercanas a 1/3 de las calorías.
- */
-export function getRecommendedMeals(userMetrics) {
-  const dailyCal = calculateTDEE(userMetrics);
-  const perMeal = dailyCal / 3;
-  const candidates = meals.filter(m =>
-    Math.abs(m.calories - perMeal) <= 100
-  );
-  // Mezcla y selecciona 7 distintas
-  const shuffled = candidates.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, 7);
-}
-
-
-  const filtered = meals.filter(m => {
-    const ingr = m.ing.map(i=>i.toLowerCase());
-    if (dislikes.some(d=>ingr.includes(d))) return false;
-    if (likes.length && !likes.some(l=>ingr.includes(l))) return false;
-    return true;
+  // Actualiza retos
+  selDep.addEventListener('change',()=>{
+    const d = selDep.value;
+    const opts = {
+      MTB:["Enduro","DH","XC"],
+      Atletismo:["400m","4×100m Relevos","Maratón"],
+      Natacion:["Resistencia"],
+      Yoga:["Hatha","Vinyasa","Ashtanga"],
+      Crossfit:["AMRAP 20","Fran","Murph"],
+      Futbol:["Partido 5v5","Tiros a portería","Resistencia balón"],
+      Baloncesto:["Tiros libres","Dribling","3v3"],
+      CiclismoRuta:["Contrarreloj","Gran Fondo","Sprint final"],
+      Boxeo:["Sombra","Sparring","Trabajo en saco"],
+      Pilates:["Matwork","Reformer","Pilates Avanzado"],
+      Escalada:["Boulder","Vía de 20m","Circuito resistencia"],
+      Triatlon:["Sprint","Olímpico","Half Ironman"]
+    };
+    selRet.innerHTML = `<option value="">Desafío</option>`;
+    natDiv.classList.add('hidden');
+    if (opts[d]) {
+      opts[d].forEach(r=>{
+        selRet.innerHTML += `<option>${r}</option>`;
+      });
+      if (d==='Natacion') natDiv.classList.remove('hidden');
+    }
   });
 
-  // Asegura al menos 15 platos
-  const finalMeals = filtered.slice(0,15);
-  if (finalMeals.length < 15) {
-    const extra = meals.filter(m=>!finalMeals.includes(m)).slice(0,15-finalMeals.length);
-    finalMeals.push(...extra);
-  }
+  // Procesa formulario
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const user = {
+      name:    document.getElementById('name').value.trim(),
+      weight:  +document.getElementById('peso').value,
+      height:  +document.getElementById('altura').value,
+      age:     +document.getElementById('edad').value,
+      sex:     document.getElementById('sexo').value,
+      activity:+document.getElementById('activity').value,
+      goal:    document.getElementById('goal').value,
+      sport:   selDep.value
+    };
 
-  const mealList = finalMeals
-    .map((m,i)=>`${i+1}. ${m.name}`)
-    .join("\n");
+    planG.textContent = `¡Hola, ${user.name}! Aquí va tu plan:`;
+    greet.textContent = '';
 
-  // Monta mensaje
-  const mensaje =
-    `¡Hola! Aquí tu plan completo:\n\n` +
-    `📊 IMC: ${imc} (ideal ${min}–${max} kg)\n` +
-    `👤 Edad: ${edad} • Sexo: ${sexo}\n\n` +
-    `🍽️ Nutrición: ${foodMsg}\n${pesoPlan}\n` +
-    `🥇 Deporte: ${d} → ${r}\n${deportivo}\n\n` +
-    `🍴 15 comidas sugeridas:\n${mealList}\n\n` +
-    `¡A por todas!`;
+    // Comidas
+    const meals = getRecommendedMeals(user);
+    mealUL.innerHTML = meals.map(m=>
+      `<li>${m.name} — ${m.calories} kcal</li>`
+    ).join('');
 
-  showResult(mensaje);
-}
+    // Entreno
+    const w = workouts[user.sport] || ["Entrenamiento libre 30 min"];
+    workUL.innerHTML = w.map(x=>`<li>${x}</li>`).join('');
 
-// Muestra el resultado justificado
-function showResult(txt) {
-  document.getElementById("resultado").textContent = txt;
-}
+    form.classList.add('hidden');
+    planC.classList.remove('hidden');
+  });
+
+  document.getElementById('logout').onclick = ()=>{
+    localStorage.clear();
+    location.href='login.html';
+  };
+});
