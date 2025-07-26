@@ -66,3 +66,12 @@ button:hover {
     width: 100%;
   }
 }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f9fafb, #e0f7fa);
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 40px;
+  text-align: center;
+  color: #1e293b;
+}
