@@ -17,3 +17,4 @@ function calcularIMC() {
     document.getElementById("resultado").innerText = "Por favor, completa los datos.";
   }
 }
+document.getElementById("resultado").innerText = `Tu IMC es ${imc}, lo que se interpreta como: ${categoria}.`;
