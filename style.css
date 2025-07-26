@@ -4,9 +4,24 @@ body {
   font-family:sans-serif;
   background:#f0f4f8;
   color:#333;
-  line-height:1.4;
+  line-height:1.5;
 }
 .hidden { display:none; }
+
+/* Logo en header */
+header {
+  text-align:center;
+  padding:1em 0;
+}
+.logo {
+  width:50px;
+  margin-bottom:0.5em;
+}
+.small {
+  font-size:0.8em;
+  color:#555;
+  margin-top:-0.5em;
+}
 
 /* Centrado en login */
 .centered {
@@ -25,9 +40,6 @@ body {
   max-width:400px;
   margin:1em auto;
 }
-header { text-align:center; padding:1em 0; }
-h1 { color:#005f73; }
-h2 { color:#0a9396; margin-bottom:0.5em; }
 
 /* Formularios */
 input, select, button {
@@ -46,12 +58,19 @@ button {
 button:hover { background:#007f83; }
 
 /* Planes */
-ul { list-style:none; margin-top:0.5em; }
+ul { list-style:none; margin-top:0.5em; padding-left:0; }
 li {
   background:#e9ecef;
   margin:0.4em 0;
   padding:0.6em;
   border-radius:4px;
+}
+
+/* Inspiración */
+.inspiration {
+  font-style:italic;
+  margin-top:1em;
+  text-align:center;
 }
 
 /* Logout */
