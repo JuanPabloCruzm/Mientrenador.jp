@@ -51,3 +51,41 @@ function calcularIMC() {
     document.getElementById("resultado").innerText = "Completa todos los datos correctamente.";
   }
 }
+let objetivo = document.getElementById("objetivo").value;
+
+let recomendaciones = "";
+
+switch (objetivo) {
+  case "ganar_masa":
+    recomendaciones = `
+      🥩 Comer más proteínas: pollo, huevos, legumbres, quinoa.
+      🏋️‍♂️ Entrenamiento de fuerza 3–5 veces por semana.
+      🧃 Evitar azúcar refinada y alcohol.
+      💤 Dormir mínimo 7 horas.
+    `;
+    break;
+  case "perder_grasa":
+    recomendaciones = `
+      🥗 Comer más vegetales, frutas, legumbres.
+      🚶‍♂️ Actividad aeróbica diaria: caminar, nadar, bailar.
+      ❌ Evitar frituras, bebidas azucaradas, harinas blancas.
+      🧘‍♀️ Añadir yoga o meditación para regular cortisol.
+    `;
+    break;
+  case "mejorar_resistencia":
+    recomendaciones = `
+      🚴‍♂️ Deportes recomendados: ciclismo, natación, fútbol, senderismo.
+      🍌 Comer carbohidratos complejos: avena, arroz integral, plátano.
+      💧 Hidratación constante.
+      🧪 Entrenamiento HIIT 2 veces por semana.
+    `;
+    break;
+  case "aumentar_peso":
+    recomendaciones = `
+      🍠 Comer más calorías de calidad: batata, arroz, frutos secos.
+      🧀 Añadir snacks densos: yogur griego, queso cottage.
+      🏋️‍♀️ Entrenamiento de fuerza + descanso.
+      🧃 Evitar comida chatarra que solo añade grasa visceral.
+    `;
+    break;
+}
