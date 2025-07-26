@@ -3,50 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Acceso Restringido</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: #f0f4f8;
-    }
-    h2, p { text-align: center; }
-    input, button {
-      margin: 0.5em 0;
-      padding: 0.6em;
-      width: 220px;
-      font-size: 1em;
-    }
-    button { cursor: pointer; }
-  </style>
+  <title>Asistente Deportivo de Juan Pablo Cruz</title>
+  <link rel="canonical" href="https://asistentedeportivojpc.github.io" />
+  <meta property="og:title" content="Asistente Deportivo de Juan Pablo Cruz" />
+  <meta property="og:description" content="Plan de comidas y entrenamiento personalizado según tu IMC, objetivo y deporte." />
+  <meta property="og:url" content="https://asistentedeportivojpc.github.io" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Asistente Deportivo de Juan Pablo Cruz" />
+  <meta name="twitter:description" content="Plan de comidas y entrenamiento personalizado según tu IMC, objetivo y deporte." />
+  <meta name="twitter:image" content="assets/logo.png" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>Acceso Restringido</h2>
-  <p>Solicita tu permiso enviando tu email a  
-     <a href="mailto:tu@correo.com">tu@correo.com</a>
-  </p>
-  <p>Cuando tengas el código, ingrésalo aquí:</p>
-  <input id="code" placeholder="Código de acceso" />
-  <button id="enter">Entrar</button>
-
+  <!-- Protege la página -->
   <script>
-    // Cambia este valor cada vez que autorices a alguien
-    const ADMIN_CODE = "TU_CODIGO_AQUÍ";
-
-    document.getElementById("enter").onclick = () => {
-      const v = document.getElementById("code").value.trim();
-      if (v === ADMIN_CODE) {
-        localStorage.setItem("authorized", "1");
-        location.href = "index.html";
-      } else {
-        alert("Código incorrecto");
-      }
-    };
+    if (localStorage.getItem("authorized")!=="1") {
+      location.href="login.html";
+    }
   </script>
+
+  <header>
+    <h1>¡Bienvenido al Asistente Deportivo!</h1>
+    <p id="greeting">Completa tus datos para empezar</p>
+  </header>
+
+  <main>
+    <form id="metricsForm" class="card">
+      <input id="name"    type="text"  placeholder="Tu nombre"        required />
+      <input id="weight"  type="number" placeholder="Peso (kg)"        required />
+      <input id="height"  type="number" step="0.01" placeholder="Altura (m)" required />
+      <input id="age"     type="number" placeholder="Edad (años)"      required />
+      <select id="sex"    required>
+        <option value="">Sexo</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+      <select id="activity" required>
+        <option value="">Nivel de actividad</option>
+        <option value="1.2">Sedentario</option>
+        <option value="1.375">Ligero</option>
+        <option value="1.55">Moderado</option>
+        <option value="1.725">Activo</option>
+        <option value="1.9">Muy activo</option>
+      </select>
+      <select id="goal" required>
+        <option value="">Tu meta</option>
+        <option value="perder">Perder peso</option>
+        <option value="mantener">Mantener</option>
+        <option value="ganar">Ganar peso</option>
+      </select>
+      <select id="sport" required>
+        <option value="">Elige un deporte</option>
+        <option>MTB</option>
+        <option>Atletismo</option>
+        <option>Natación</option>
+        <option>Yoga</option>
+        <option>Crossfit</option>
+        <option>Fútbol</option>
+        <option>Baloncesto</option>
+        <option>Ciclismo de Ruta</option>
+        <option>Boxeo</option>
+        <option>Pilates</option>
+        <option>Escalada</option>
+        <option>Triatlón</option>
+      </select>
+      <button type="submit">Obtener mi plan</button>
+    </form>
+
+    <section id="planContainer" class="card hidden">
+      <h2 id="planGreeting"></h2>
+      <h3>7 Comidas recomendadas</h3>
+      <ul id="mealPlan"></ul>
+
+      <h3>Entrenamiento para tu deporte</h3>
+      <ul id="workoutPlan"></ul>
+
+      <button id="logout">Cerrar sesión</button>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
