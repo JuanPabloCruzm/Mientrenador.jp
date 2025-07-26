@@ -1,64 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculadora IMC</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asistente Deportivo IMC</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Calculadora IMC</h1>
-  <p>Ingresa tu peso y altura para calcular tu IMC.</p>
-<form>
-  <label for="sexo">Sexo:</label>
-  <select id="sexo">
-    <option value="masculino">Masculino</option>
-    <option value="femenino">Femenino</option>
-  </select>
-  <br><br>
-
-  <label for="edad">Edad:</label>
-  <input type="number" id="edad" min="1" required>
-  <br><br>
-
-  <label for="peso">Peso (kg):</label>
-  <input type="number" id="peso" required>
-  <br><br>
-
-  <label for="altura">Altura (m):</label>
-  <input type="number" id="altura" step="0.01" required>
-  <br><br>
-
-  <button type="button" onclick="calcularIMC()">Calcular</button>
-</form>
-  
-  <h2 id="resultado"></h2>
-
+  <div class="container">
+    <h1>🏋️‍♂️ Diagnóstico Deportivo</h1>
+    <input type="number" id="peso" placeholder="Peso (kg)" />
+    <input type="number" id="altura" step="0.01" placeholder="Altura (m)" />
+    <input type="number" id="edad" placeholder="Edad" />
+    <select id="sexo">
+      <option value="">Sexo</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select>
+    <select id="objetivo">
+      <option value="">Objetivo</option>
+      <option value="ganar_masa">Ganar masa muscular</option>
+      <option value="perder_grasa">Perder grasa</option>
+      <option value="mejorar_resistencia">Mejorar resistencia</option>
+      <option value="aumentar_peso">Aumentar peso</option>
+    </select>
+    <button onclick="calcularIMC()">Calcular IMC</button>
+    <p id="resultado"></p>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
-<footer>
-  <p style="margin-top:40px; font-style:italic; color:#475569;">
-    Porque la salud también puede expresarse con geometría técnica y narrativa personal.
-  </p>
-</footer>
-<blockquote style="font-style: italic; color: #475569; margin-bottom: 30px;">
-  Una calculadora que traduce masa y altura en narrativa corporal, como si la geometría dialogara con la salud.
-</blockquote>
-<select id="objetivoSaludable">
-  <option value="">¿Qué quieres mejorar?</option>
-  <option value="fuerza">Ganar fuerza</option>
-  <option value="velocidad">Ganar velocidad</option>
-  <option value="resistencia">Mejorar resistencia</option>
-</select>
-<select id="deporte">
-  <option value="">¿Qué deporte practicas o quieres practicar?</option>
-  <option value="mtb">MTB</option>
-  <option value="fuerza_gym">Fuerza / Gym</option>
-  <option value="atletismo">Atletismo</option>
-  <option value="natacion">Natación</option>
-  <option value="futbol">Fútbol</option>
-  <option value="ski">Ski</option>
-  <option value="ballet">Ballet</option>
-  <option value="cheer">Cheerleader</option>
-  <option value="basquet">Básquet</option>
-</select>
