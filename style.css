@@ -88,3 +88,9 @@ body {body::before {
   color: #1e293b;
 }
 background-image: url('img/DUhkb8EFqM7zX53mxDvVy.png');
+body {
+  background-image: url('https://images.unsplash.com/photo-1571019613914-85f342c1d4f1');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
