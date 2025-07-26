@@ -1,21 +1,25 @@
 # Asistente Deportivo 
 
-Plataforma digital creada por Sr JP para la transformación física personalizada a través de seguimiento, nutrición y disciplinas específicas.
+Calculadora de IMC + **plan deportivo narrativo**  
+Ideal para profesionales y atletas exigentes.
 
-## 🧬 Funciones
-- Seguimiento de IMC, metas de peso y progreso semanal
-- Recomendación de deporte, reto y alimentación
-- Guardado automático de historial en navegador
-- Rutinas + complementos de gimnasio
+## ⭐️ Características
+- Cálculo de IMC y rango de peso ideal
+- Recomendación nutricional automática
+- Selección dinámica de disciplina y desafío
+- Planes ultra-detallados para MTB, atletismo y natación
+- Textos justificados y estética clean “ABC1”
 
-## 📦 Tecnologías
-- HTML, CSS, JavaScript (localStorage)
+## 🛠️ Uso
+1. Clona este repo.  
+2. Abre `index.html` en tu navegador.  
+3. Completa peso, altura, edad, sexo.  
+4. Elige disciplina y reto.  
+5. ¡Disfruta tu plan narrativo!  
 
-## 🧠 ¿Cómo usar?
-1. Ingresa tus datos personales y objetivos.
-2. Selecciona deporte y desafío.
-3. Genera tu plan narrativo con recomendaciones visuales.
+## 📈 Futuras mejoras
+- Dashboard con **historial** ☑️  
+- Objetivos y metas semanales  
+- Integración con wearables  
 
----
-
-**Creado para atletas de la Clase C1054 que compiten contra su mejor versión.**
+*Creado por Sr JP – Clase C1054.*
