@@ -3,28 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asistente Deportivo IMC</title>
+  <title>Asistente Deportivo C1054</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>🏋️‍♂️ Diagnóstico Deportivo</h1>
-    <input type="number" id="peso" placeholder="Peso (kg)" />
+    <h1>🔷 Asistente Deportivo Narrativo</h1>
+
+    <input type="number" id="peso" placeholder="Peso actual (kg)" />
+    <input type="number" id="metaPeso" placeholder="Meta de peso (kg)" />
     <input type="number" id="altura" step="0.01" placeholder="Altura (m)" />
     <input type="number" id="edad" placeholder="Edad" />
+
     <select id="sexo">
       <option value="">Sexo</option>
       <option value="Masculino">Masculino</option>
       <option value="Femenino">Femenino</option>
     </select>
-    <select id="objetivo">
-      <option value="">Objetivo</option>
-      <option value="ganar_masa">Ganar masa muscular</option>
-      <option value="perder_grasa">Perder grasa</option>
-      <option value="mejorar_resistencia">Mejorar resistencia</option>
-      <option value="aumentar_peso">Aumentar peso</option>
+
+    <select id="deporte">
+      <option value="">Disciplina</option>
+      <option value="MTB">MTB</option>
+      <option value="Atletismo">Atletismo</option>
+      <option value="Natación">Natación</option>
     </select>
-    <button onclick="calcularIMC()">Calcular IMC</button>
+
+    <select id="reto">
+      <option value="">Desafío</option>
+      <option value="40m">40 metros velocidad</option>
+      <option value="Posta">Posta técnica</option>
+      <option value="Enduro">MTB Enduro</option>
+      <option value="400m">400m nado libre</option>
+      <option value="Estilo">Estilo: pecho / crol / mariposa</option>
+    </select>
+
+    <button onclick="procesar()">📊 Diagnóstico + Plan</button>
     <p id="resultado"></p>
   </div>
   <script src="script.js"></script>
