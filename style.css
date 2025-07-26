@@ -54,7 +54,11 @@ button:hover {
   margin-top: 20px;
 }
 @media screen and (max-width: 600px) {
-  body {
+  background-image: url('DUhkb8EFqM7zX53mxDvVy.png');
+background-size: cover;
+background-attachment: fixed;
+background-position: center;
+
     padding: 20px;
   }
 
@@ -66,7 +70,15 @@ button:hover {
     width: 100%;
   }
 }
-body {
+body {body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* nivel de oscurecimiento */
+  z-index: -1;
+}
+
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to right, #f9fafb, #e0f7fa);
   background-attachment: fixed;
