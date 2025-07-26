@@ -1,26 +1,21 @@
-# Asistente Deportivo Narrativo
+# Asistente Deportivo 
 
-Este proyecto es una **calculadora de IMC avanzada**, pensada como herramienta digital narrativa para entrenadores, atletas recreativos y buscadores de transformación física.
+Plataforma digital creada por Sr JP para la transformación física personalizada a través de seguimiento, nutrición y disciplinas específicas.
 
-## 🎯 Funciones
-
-- Cálculo dinámico de IMC
-- Recomendaciones según peso y objetivos
-- Fondo adaptable según meta
-- Estética C1054 centrada en la geometría, exclusividad y salud
+## 🧬 Funciones
+- Seguimiento de IMC, metas de peso y progreso semanal
+- Recomendación de deporte, reto y alimentación
+- Guardado automático de historial en navegador
+- Rutinas + complementos de gimnasio
 
 ## 📦 Tecnologías
+- HTML, CSS, JavaScript (localStorage)
 
-- HTML
-- CSS
-- JavaScript
-
-## 🚀 ¿Cómo usarlo?
-
-1. Ingresa tu peso, altura, edad, sexo y objetivo deportivo.
-2. Haz clic en “Calcular IMC”.
-3. Recibe tu diagnóstico narrativo y visual adaptado.
+## 🧠 ¿Cómo usar?
+1. Ingresa tus datos personales y objetivos.
+2. Selecciona deporte y desafío.
+3. Genera tu plan narrativo con recomendaciones visuales.
 
 ---
 
-**Made by Sr JP for la clase atlética C1054.**
+**Creado para atletas de la Clase C1054 que compiten contra su mejor versión.**
