@@ -9,13 +9,13 @@
 <body class="centered">
   <div class="card">
     <h2>Acceso Restringido</h2>
-    <p>Solicita tu código a <a href="mailto:tu@correo.com">tu@correo.com</a></p>
+    <p>Introduce tu código</p>
     <input id="code" type="password" placeholder="Código de acceso" />
     <button id="enter">Entrar</button>
   </div>
 
   <script>
-    const ADMIN_CODE = "MTBFOREVER"; // Cámbialo cada vez que des permiso
+    const ADMIN_CODE = "TRINIDADFOREVER";
     document.getElementById("enter").onclick = () => {
       if (document.getElementById("code").value.trim() === ADMIN_CODE) {
         localStorage.setItem("authorized","1");
