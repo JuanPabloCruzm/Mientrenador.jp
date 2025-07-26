@@ -159,27 +159,35 @@ function procesar() {
   const likes    = parseList(gustosStr);
 
   const meals = [
-    {name:"Avena con plátano y nueces",  ing:["avena","plátano","nueces"]},
-    {name:"Yogur con frutos rojos",       ing:["yogur","frutos rojos"]},
-    {name:"Tortilla de claras y espinacas", ing:["huevo","espinaca"]},
-    {name:"Ensalada de garbanzos y atún", ing:["garbanzos","atún"]},
-    {name:"Pechuga de pollo con brócoli", ing:["pollo","brócoli"]},
-    {name:"Salmón a la plancha",          ing:["salmón"]},
-    {name:"Batido de proteína y berries", ing:["proteína","frutos del bosque"]},
-    {name:"Wrap de pavo y vegetales",     ing:["pavo","vegetales"]},
-    {name:"Arroz integral con lentejas",  ing:["arroz","lentejas"]},
-    {name:"Smoothie verde",               ing:["espinaca","manzana","jengibre"]},
-    {name:"Sopa de verduras con pollo",   ing:["verduras","pollo"]},
-    {name:"Pasta integral con tomate",    ing:["pasta","tomate"]},
-    {name:"Ensalada de quinoa y aguacate",ing:["quinoa","aguacate"]},
-    {name:"Tostada integral con aguacate",ing:["pan integral","aguacate"]},
-    {name:"Filete de ternera con ensalada",ing:["ternera","ensalada"]},
-    {name:"Brochetas de pollo y piña",    ing:["pollo","piña"]},
-    {name:"Huevos revueltos con champiñones",ing:["huevo","champiñones"]},
-    {name:"Pan integral con queso y tomate",ing:["pan integral","queso","tomate"]},
-    {name:"Smoothie de plátano y avena",  ing:["plátano","avena"]},
-    {name:"Ensalada de pasta integral",   ing:["pasta","verduras"]}
-  ];
+    // recommend.js
+import { meals } from './meals.js';
+
+/**
+ * Calcula TDEE usando Mifflin-St Jeor y ajusta según meta.
+ */
+function calculateTDEE({ weight, height, age, sex, activityFactor, goal }) {
+  const s = sex === 'M' ? 5 : -161;
+  const bmr = 10 * weight + 6.25 * (height * 100) - 5 * age + s;
+  let tdee = bmr * activityFactor;
+  if (goal === 'perder') tdee -= 500;
+  if (goal === 'ganar')  tdee += 500;
+  return Math.round(tdee);
+}
+
+/**
+ * Devuelve 7 comidas diarias cercanas a 1/3 de las calorías.
+ */
+export function getRecommendedMeals(userMetrics) {
+  const dailyCal = calculateTDEE(userMetrics);
+  const perMeal = dailyCal / 3;
+  const candidates = meals.filter(m =>
+    Math.abs(m.calories - perMeal) <= 100
+  );
+  // Mezcla y selecciona 7 distintas
+  const shuffled = candidates.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 7);
+}
+
 
   const filtered = meals.filter(m => {
     const ingr = m.ing.map(i=>i.toLowerCase());
