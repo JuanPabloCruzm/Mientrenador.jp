@@ -53,3 +53,16 @@ button:hover {
   font-weight: bold;
   margin-top: 20px;
 }
+@media screen and (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
