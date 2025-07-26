@@ -1,25 +1,30 @@
-/* ────── Reset & fuente ────── */
-* { box-sizing: border-box; margin:0; padding:0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   background-color: #e1f5fe;
   color: #263238;
   line-height: 1.5;
 }
-.hidden { display: none; }
 
-/* ────── Contenedor central ────── */
+.hidden {
+  display: none;
+}
+
 .container {
-  max-width: 600px;
+  max-width: 640px;
   margin: 40px auto;
   padding: 30px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.95);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-/* ────── Inputs y selects ────── */
 input, select {
   width: 100%;
   padding: 12px 14px;
@@ -29,10 +34,9 @@ input, select {
   font-size: 1em;
 }
 
-/* ────── Botón ────── */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin: 20px 0;
   background-color: #1976d2;
   color: #fff;
@@ -42,16 +46,16 @@ button {
   cursor: pointer;
   transition: background-color .2s;
 }
+
 button:hover {
   background-color: #125ea2;
 }
 
-/* ────── Resultados ────── */
 #resultado {
   text-align: justify;
   white-space: pre-wrap;
   margin-top: 20px;
-  padding: 10px;
+  padding: 15px;
   border-top: 1px solid #90caf9;
   font-size: 0.95em;
 }
