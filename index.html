@@ -2,105 +2,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Asistente Deportivo – JP</title>
-
-  <!-- Open Graph & Twitter -->
-  <link rel="canonical" href="https://tu-sitio.github.io" />
-  <meta property="og:title" content="Asistente Deportivo – JP" />
-  <meta property="og:description" content="Plan de comidas y entrenamiento personalizado según tu deporte y especialidad." />
-  <meta property="og:url" content="https://tu-sitio.github.io" />
-  <meta property="og:image" content="assets/fox-logo.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/fox-logo.png" />
-
-  <link rel="icon" href="assets/fox-logo.png" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Calculadora Física</title>
 </head>
 <body>
-  <!-- Protección -->
-  <script>
-    if (localStorage.getItem("authorized")!=="1") {
-      location.href = "login.html";
-    }
-  </script>
+  <h1>Tu perfil físico</h1>
 
-  <header>
-    <img src="assets/fox-logo.png" alt="Logo Zorro" class="logo" />
-    <h1>¡Bienvenido al Asistente Deportivo!</h1>
-    <p class="small">by: JP</p>
-    <p id="greeting">Completa tus datos para empezar</p>
-  </header>
+  <label for="peso">Peso (kg):</label>
+  <input type="number" id="peso" required />
 
-  <main>
-    <form id="metricsForm" class="card">
-      <input id="name"       type="text"  placeholder="Tu nombre" required />
-      <input id="peso"       type="number" step="0.1" placeholder="Peso (kg)" required />
-      <input id="altura"     type="number" step="0.01" placeholder="Altura (m)" required />
-      <input id="edad"       type="number" placeholder="Edad (años)" required />
+  <label for="altura">Altura (cm):</label>
+  <input type="number" id="altura" required />
 
-      <select id="sexo" required>
-        <option value="">Sexo</option>
-        <option value="M">Masculino</option>
-        <option value="F">Femenino</option>
-      </select>
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad" required />
 
-      <select id="disciplina" required>
-        <option value="">Elige un deporte</option>
-        <option>MTB</option>
-        <option>Atletismo</option>
-        <option>Natacion</option>
-        <option>Yoga</option>
-        <option>Crossfit</option>
-        <option>Futbol</option>
-        <option>Baloncesto</option>
-        <option>CiclismoRuta</option>
-        <option>Boxeo</option>
-        <option>Pilates</option>
-        <option>Escalada</option>
-        <option>Triatlon</option>
-      </select>
+  <label for="sexo">Sexo:</label>
+  <select id="sexo" required>
+    <option value="">Selecciona</option>
+    <option value="masculino">Masculino</option>
+    <option value="femenino">Femenino</option>
+  </select>
 
-      <select id="biotipo" required>
-  <option value="">Tipo de cuerpo</option>
-  <option value="ectomorfo">Ectomorfo – Delgado, metabolismo rápido, difícil ganar masa</option>
-  <option value="mesomorfo">Mesomorfo – Atlético, responde bien al ejercicio y gana músculo fácilmente</option>
-  <option value="endomorfo">Endomorfo – Tendencia a acumular grasa, necesita disciplina nutricional</option>
-</select>
+  <label for="biotipo">Tipo de cuerpo:</label>
+  <select id="biotipo" required>
+    <option value="">Selecciona</option>
+    <option value="ectomorfo">Ectomorfo</option>
+    <option value="mesomorfo">Mesomorfo</option>
+    <option value="endomorfo">Endomorfo</option>
+  </select>
 
-      <select id="reto">
-        <option value="">Especialidad técnica</option>
-      </select>
+  <button onclick="procesar()">Ver plan</button>
+  <pre id="resultado"></pre>
 
-      <div id="natacionInputs" class="hidden">
-        <input id="distanciaNat" type="number" placeholder="Metros a nadar" />
-        <input id="tiempoNat"    type="text"   placeholder="Tiempo (mm:ss)" />
-      </div>
-
-      <button type="submit">Obtener mi plan</button>
-    </form>
-
-    <section id="planContainer" class="card hidden">
-      <h2 id="planGreeting"></h2>
-
-      <h3>7 Desayunos recomendados</h3>
-      <ul id="breakfastPlan"></ul>
-
-      <h3>7 Almuerzos recomendados</h3>
-      <ul id="lunchPlan"></ul>
-
-      <h3>7 Cenas recomendadas</h3>
-      <ul id="dinnerPlan"></ul>
-
-      <h3>Entrenamiento de gym & sesiones específicas</h3>
-      <ul id="workoutPlan"></ul>
-
-      <p id="inspiration" class="inspiration"></p>
-
-      <button id="logout">Cerrar sesión</button>
-    </section>
-  </main>
-
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
