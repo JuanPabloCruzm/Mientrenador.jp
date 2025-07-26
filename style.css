@@ -1,43 +1,57 @@
+/* ────── Reset & fuente ────── */
+* { box-sizing: border-box; margin:0; padding:0; }
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #a1c9f1; /* Celeste claro */
-  color: #f4faff;
-  margin: 0;
-  padding: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  font-family: 'Lato', sans-serif;
+  background-color: #e1f5fe;
+  color: #263238;
+  line-height: 1.5;
 }
+.hidden { display: none; }
 
+/* ────── Contenedor central ────── */
 .container {
   max-width: 600px;
-  margin: auto;
-  padding: 40px 20px;
-  background-color: rgba(41, 70, 97, 0.6);
-  border-radius: 10px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-input, select, button {
+/* ────── Inputs y selects ────── */
+input, select {
   width: 100%;
-  padding: 10px;
+  padding: 12px 14px;
   margin: 10px 0;
-  font-size: 1em;
+  border: 1px solid #90caf9;
   border-radius: 5px;
-  border: none;
+  font-size: 1em;
 }
 
+/* ────── Botón ────── */
 button {
-  background-color: #294661; /* Azul marino */
-  color: white;
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
   cursor: pointer;
+  transition: background-color .2s;
 }
-
 button:hover {
-  background-color: #223a54;
+  background-color: #125ea2;
 }
 
-h1 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
+/* ────── Resultados ────── */
+#resultado {
+  text-align: justify;
+  white-space: pre-wrap;
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #90caf9;
+  font-size: 0.95em;
 }
