@@ -2,61 +2,51 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Asistente Deportivo</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acceso Restringido</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f4f8;
+    }
+    h2, p { text-align: center; }
+    input, button {
+      margin: 0.5em 0;
+      padding: 0.6em;
+      width: 220px;
+      font-size: 1em;
+    }
+    button { cursor: pointer; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Asistente Deportivo</h1>
+  <h2>Acceso Restringido</h2>
+  <p>Solicita tu permiso enviando tu email a  
+     <a href="mailto:tu@correo.com">tu@correo.com</a>
+  </p>
+  <p>Cuando tengas el código, ingrésalo aquí:</p>
+  <input id="code" placeholder="Código de acceso" />
+  <button id="enter">Entrar</button>
 
-    <!-- Datos personales -->
-    <input id="peso"    type="number" step="0.1" placeholder="Peso (kg)" />
-    <input id="altura"  type="number" step="0.01" placeholder="Altura (m)" />
-    <input id="edad"    type="number" placeholder="Edad (años)" />
+  <script>
+    // Cambia este valor cada vez que autorices a alguien
+    const ADMIN_CODE = "TU_CODIGO_AQUÍ";
 
-    <select id="sexo">
-      <option value="">Sexo</option>
-      <option value="Masculino">Masculino</option>
-      <option value="Femenino">Femenino</option>
-    </select>
-
-    <!-- Gustos alimentarios -->
-    <input id="disgustos" type="text" placeholder="¿Qué NO te gusta comer? (separa con comas)" />
-    <input id="gustos"    type="text" placeholder="¿Qué SÍ te gusta comer? (separa con comas)" />
-
-    <!-- Selección de deporte y desafío -->
-    <select id="disciplina" onchange="actualizarRetos()">
-      <option value="">Deporte</option>
-      <option value="MTB">MTB</option>
-      <option value="Atletismo">Atletismo</option>
-      <option value="Natacion">Natación</option>
-      <option value="Yoga">Yoga</option>
-      <option value="Crossfit">Crossfit</option>
-      <option value="Futbol">Fútbol</option>
-      <option value="Baloncesto">Baloncesto</option>
-      <option value="CiclismoRuta">Ciclismo de Ruta</option>
-      <option value="Boxeo">Boxeo</option>
-      <option value="Pilates">Pilates</option>
-      <option value="Escalada">Escalada</option>
-      <option value="Triatlon">Triatlón</option>
-    </select>
-
-    <select id="reto">
-      <option value="">Desafío</option>
-    </select>
-
-    <!-- Inputs extra para natación -->
-    <div id="natacionInputs" class="hidden">
-      <input id="distanciaNat" type="number" placeholder="Metros a nadar" />
-      <input id="tiempoNat"    type="text" placeholder="Tiempo previsto (mm:ss)" />
-    </div>
-
-    <button onclick="procesar()">¡Dame mi plan!</button>
-
-    <div id="resultado"></div>
-  </div>
-
-  <script src="script.js"></script>
+    document.getElementById("enter").onclick = () => {
+      const v = document.getElementById("code").value.trim();
+      if (v === ADMIN_CODE) {
+        localStorage.setItem("authorized", "1");
+        location.href = "index.html";
+      } else {
+        alert("Código incorrecto");
+      }
+    };
+  </script>
 </body>
 </html>
