@@ -89,3 +89,16 @@ switch (objetivo) {
     `;
     break;
 }
+let objetivo = document.getElementById("objetivo").value;
+
+switch (objetivo) {
+  case "ganar_masa":
+    document.body.style.backgroundImage = "url('URL_MUSCULAR')";
+    break;
+  case "perder_grasa":
+    document.body.style.backgroundImage = "url('URL_QUEMA')";
+    break;
+  case "resistencia":
+    document.body.style.backgroundImage = "url('URL_MTB')";
+    break;
+}
