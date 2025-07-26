@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Asistente Deportivo – Juan Pablo Cruz</title>
+  <title>Asistente Deportivo – JP</title>
 
   <!-- Open Graph & Twitter -->
-  <link rel="canonical" href="https://asistentedeportivojpc.github.io" />
-  <meta property="og:title" content="Asistente Deportivo – Juan Pablo Cruz" />
-  <meta property="og:description" content="Plan de comidas y entrenamiento personalizado según tu IMC, objetivo y deporte." />
-  <meta property="og:url" content="https://asistentedeportivojpc.github.io" />
-  <meta property="og:image" content="assets/logo.png" />
+  <link rel="canonical" href="https://tu-sitio.github.io" />
+  <meta property="og:title" content="Asistente Deportivo – JP" />
+  <meta property="og:description" content="Plan de comidas y entrenamiento personalizado según tu deporte y especialidad." />
+  <meta property="og:url" content="https://tu-sitio.github.io" />
+  <meta property="og:image" content="assets/fox-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/logo.png" />
+  <meta name="twitter:image" content="assets/fox-logo.png" />
 
-  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" href="assets/fox-logo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -26,37 +26,23 @@
   </script>
 
   <header>
+    <img src="assets/fox-logo.png" alt="Logo Zorro" class="logo" />
     <h1>¡Bienvenido al Asistente Deportivo!</h1>
+    <p class="small">by: JP</p>
     <p id="greeting">Completa tus datos para empezar</p>
   </header>
 
   <main>
     <form id="metricsForm" class="card">
-      <input id="name"      type="text"  placeholder="Tu nombre" required />
-      <input id="peso"      type="number" step="0.1" placeholder="Peso (kg)" required />
-      <input id="altura"    type="number" step="0.01" placeholder="Altura (m)" required />
-      <input id="edad"      type="number" placeholder="Edad (años)"  required />
+      <input id="name"       type="text"  placeholder="Tu nombre" required />
+      <input id="peso"       type="number" step="0.1" placeholder="Peso (kg)" required />
+      <input id="altura"     type="number" step="0.01" placeholder="Altura (m)" required />
+      <input id="edad"       type="number" placeholder="Edad (años)" required />
 
       <select id="sexo" required>
         <option value="">Sexo</option>
         <option value="M">Masculino</option>
         <option value="F">Femenino</option>
-      </select>
-
-      <select id="activity" required>
-        <option value="">Nivel de actividad</option>
-        <option value="1.2">Sedentario</option>
-        <option value="1.375">Ligero</option>
-        <option value="1.55">Moderado</option>
-        <option value="1.725">Activo</option>
-        <option value="1.9">Muy activo</option>
-      </select>
-
-      <select id="goal" required>
-        <option value="">Tu meta</option>
-        <option value="perder">Perder peso</option>
-        <option value="mantener">Mantener</option>
-        <option value="ganar">Ganar peso</option>
       </select>
 
       <select id="disciplina" required>
@@ -75,8 +61,15 @@
         <option>Triatlon</option>
       </select>
 
+      <select id="especialidad" required>
+        <option value="">Especialidad</option>
+        <option value="bajar">Bajar de peso</option>
+        <option value="mantener">Mantener peso</option>
+        <option value="subir">Subir de peso</option>
+      </select>
+
       <select id="reto">
-        <option value="">Desafío</option>
+        <option value="">Especialidad técnica</option>
       </select>
 
       <div id="natacionInputs" class="hidden">
@@ -90,11 +83,19 @@
     <section id="planContainer" class="card hidden">
       <h2 id="planGreeting"></h2>
 
-      <h3>7 Comidas recomendadas</h3>
-      <ul id="mealPlan"></ul>
+      <h3>7 Desayunos recomendados</h3>
+      <ul id="breakfastPlan"></ul>
 
-      <h3>Entrenamiento para tu deporte</h3>
+      <h3>7 Almuerzos recomendados</h3>
+      <ul id="lunchPlan"></ul>
+
+      <h3>7 Cenas recomendadas</h3>
+      <ul id="dinnerPlan"></ul>
+
+      <h3>Entrenamiento de gym & sesiones específicas</h3>
       <ul id="workoutPlan"></ul>
+
+      <p id="inspiration" class="inspiration"></p>
 
       <button id="logout">Cerrar sesión</button>
     </section>
