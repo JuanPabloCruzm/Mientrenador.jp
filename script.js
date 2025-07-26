@@ -102,3 +102,19 @@ switch (objetivo) {
     document.body.style.backgroundImage = "url('URL_MTB')";
     break;
 }
+let objetivo = document.getElementById("objetivoSaludable").value;
+let deporte = document.getElementById("deporte").value;
+let recomendacion = "";
+
+if (objetivo === "fuerza" && deporte === "fuerza_gym") {
+  recomendacion = "🏋️‍♂️ Rutina: 4x8 sentadillas, press banca, peso muerto. Comer más proteínas y descansar bien.";
+}
+else if (objetivo === "resistencia" && deporte === "mtb") {
+  recomendacion = "🚴‍♂️ Entrena con intervalos en subida, técnica en bajada y sesiones largas. Añade plátano, avena y agua con electrolitos.";
+}
+else if (objetivo === "velocidad" && deporte === "atletismo") {
+  recomendacion = "🏃‍♂️ Haz 6x200m a ritmo de carrera + 3x100m explosivos. Trabaja técnica de zancada y respiración.";
+}
+else if (objetivo === "resistencia" && deporte === "natacion") {
+  recomendacion = "🏊‍♂️ Haz series de 100m con descanso corto. Añade ejercicios de core fuera del agua.";
+}
