@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acceso – Asistente Deportivo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="centered">
+  <div class="card">
+    <h2>Acceso Restringido</h2>
+    <p>Solicita tu código a <a href="mailto:tu@correo.com">tu@correo.com</a></p>
+    <input id="code" type="password" placeholder="Código de acceso" />
+    <button id="enter">Entrar</button>
+  </div>
+
+  <script>
+    // Cambia este código cada vez que autorices a alguien
+    const ADMIN_CODE = "123456";
+    document.getElementById("enter").onclick = () => {
+      if (document.getElementById("code").value.trim() === ADMIN_CODE) {
+        localStorage.setItem("authorized","1");
+        location.href = "index.html";
+      } else {
+        alert("Código incorrecto");
+      }
+    };
+  </script>
+</body>
+</html>
