@@ -2,18 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asistente Deportivo C1054</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asistente Deportivo ABC1</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>🔷 Asistente Deportivo Narrativo</h1>
+    <h1>Asistente Deportivo ABC1</h1>
 
-    <input type="number" id="peso" placeholder="Peso actual (kg)" />
-    <input type="number" id="metaPeso" placeholder="Meta de peso (kg)" />
-    <input type="number" id="altura" step="0.01" placeholder="Altura (m)" />
-    <input type="number" id="edad" placeholder="Edad" />
+    <!-- Datos básicos -->
+    <input id="peso"    type="number" step="0.1" placeholder="Peso (kg)" />
+    <input id="altura"  type="number" step="0.01" placeholder="Altura (m)" />
+    <input id="edad"    type="number" placeholder="Edad (años)" />
 
     <select id="sexo">
       <option value="">Sexo</option>
@@ -21,25 +21,29 @@
       <option value="Femenino">Femenino</option>
     </select>
 
-    <select id="deporte">
+    <!-- Disciplina y reto dinámico -->
+    <select id="disciplina" onchange="actualizarRetos()">
       <option value="">Disciplina</option>
       <option value="MTB">MTB</option>
       <option value="Atletismo">Atletismo</option>
-      <option value="Natación">Natación</option>
+      <option value="Natacion">Natación</option>
     </select>
 
     <select id="reto">
       <option value="">Desafío</option>
-      <option value="40m">40 metros velocidad</option>
-      <option value="Posta">Posta técnica</option>
-      <option value="Enduro">MTB Enduro</option>
-      <option value="400m">400m nado libre</option>
-      <option value="Estilo">Estilo: pecho / crol / mariposa</option>
     </select>
 
-    <button onclick="procesar()">📊 Diagnóstico + Plan</button>
-    <p id="resultado"></p>
+    <!-- Inputs extra para natación -->
+    <div id="natacionInputs" class="hidden">
+      <input id="distanciaNat" type="number" placeholder="Metros a nadar" />
+      <input id="tiempoNat"    type="text" placeholder="Tiempo previsto (mm:ss)" />
+    </div>
+
+    <button onclick="procesar()">Generar plan</button>
+
+    <div id="resultado"></div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
