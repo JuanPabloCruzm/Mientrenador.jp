@@ -1,32 +1,70 @@
- // meals.js
+// meals.js
 
 export const breakfasts = [
-  "Avena con frutas", "Huevos revueltos", "Smoothie verde",
-  "Yogur con granola", "Pan integral con aguacate", 
-  "Porridge de quinoa", "Panqueques de avena", 
-  "Chia pudding", "Tortilla de claras", "Muffins de huevo",
-  "Tostadas con pavo", "Bowl de frutos rojos", "Batido proteico",
-  "Tostada de salmón", "Avena nocturna", "Bagel integral",
-  "Toast de hummus", "Crepes integrales", "Fruta y frutos secos",
-  "Pan con mantequilla de almendra"
+  { name:"Avena con plátano y nueces" },
+  { name:"Huevos revueltos con tomate" },
+  { name:"Smoothie verde de espinaca" },
+  { name:"Yogur con frutos rojos" },
+  { name:"Pan integral con mermelada" },
+  { name:"Porridge de quinua" },
+  { name:"Panqueques de avena" },
+  { name:"Chia pudding con frutas" },
+  { name:"Tortilla de claras y espinacas" },
+  { name:"Muffins de huevo y espárragos" },
+  { name:"Tostadas de mantequilla de maní" },
+  { name:"Bagel integral con queso" },
+  { name:"Bowl de frutas y granola" },
+  { name:"Batido proteico de berries" },
+  { name:"Crepes integrales" },
+  { name:"Pan con pollo desmenuzado" },
+  { name:"Avena nocturna con chia" },
+  { name:"Waffles integrales" },
+  { name:"Ensalada de frutas con yogurt" },
+  { name:"Tostada de queso fresco" }
 ];
 
 export const lunches = [
-  "Ensalada de pollo", "Salmón a la plancha", "Tacos integrales",
-  "Pasta integral", "Curry de garbanzos", "Bowl de quinoa",
-  "Wrap de pavo", "Hamburguesa de lentejas", "Tofu salteado",
-  "Paella de mariscos", "Sopa de verduras", "Pollo al curry",
-  "Couscous mediterráneo", "Filete de cerdo", "Tilapia al horno",
-  "Pavo al vapor", "Sopa de lentejas", "Quinoa con aguacate",
-  "Buddha bowl vegano", "Espagueti de calabacín"
+  { name:"Ensalada de pollo y quinoa" },
+  { name:"Salmón a la plancha" },
+  { name:"Tacos de pescado" },
+  { name:"Pasta integral con verduras" },
+  { name:"Curry de garbanzos y arroz" },
+  { name:"Bowl de ternera y verduras" },
+  { name:"Wrap de pavo y lechuga" },
+  { name:"Hamburguesa de lentejas" },
+  { name:"Salteado de tofu y vegetales" },
+  { name:"Paella de mariscos" },
+  { name:"Sopa de verduras con pollo" },
+  { name:"Pollo al curry con brócoli" },
+  { name:"Couscous mediterráneo" },
+  { name:"Filete de cerdo con batata" },
+  { name:"Ensalada César ligera" },
+  { name:"Tilapia al horno" },
+  { name:"Quinoa con plátano y kale" },
+  { name:"Buddha bowl vegano" },
+  { name:"Espagueti de zucchini" },
+  { name:"Rollitos de lechuga y ternera" }
 ];
 
 export const dinners = [
-  "Pechuga de pollo", "Salmón al papillote", "Ensalada César",
-  "Tortilla de verduras", "Filete de ternera", "Tacos de pescado",
-  "Stir-fry de gambas", "Pizza de coliflor", "Bowl de tofu",
-  "Rollitos de lechuga", "Sopa miso", "Pollo teriyaki",
-  "Pasta de lentejas", "Ensalada griega", "Atún a la plancha",
-  "Curry de verduras", "Berenjena rellena", "Bol de poke",
-  "Salmón con brócoli", "Wrap de falafel"
+  { name:"Pechuga de pollo a la plancha" },
+  { name:"Salmón al papillote" },
+  { name:"Ensalada griega" },
+  { name:"Tortilla de verduras" },
+  { name:"Filete de ternera y espárragos" },
+  { name:"Tacos vegetarianos" },
+  { name:"Stir-fry de gambas" },
+  { name:"Pizza de coliflor" },
+  { name:"Bowl de tofu y quinoa" },
+  { name:"Rollitos de pepino y salmón" },
+  { name:"Sopa miso con pollo" },
+  { name:"Pollo teriyaki con arroz" },
+  { name:"Pasta de lentejas con pesto" },
+  { name:"Ensalada de atún fresca" },
+  { name:"Berenjenas rellenas" },
+  { name:"Bol de poke de salmón" },
+  { name:"Salmón con brócoli al vapor" },
+  { name:"Wrap de falafel" },
+  { name:"Estofado de ternera" },
+  { name:"Pan integral con queso y tomate" }
 ];
