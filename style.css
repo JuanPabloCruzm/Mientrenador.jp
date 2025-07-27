@@ -59,3 +59,12 @@ li {
 #logout:hover {
   background:#8f1a0f;
 }
+input, select {
+  color: #000000; /* negro */
+  background-color: #ffffff; /* blanco */
+  border: 1px solid #ccc;
+}
+
+::placeholder {
+  color: #666666; /* gris más visible */
+}
