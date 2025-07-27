@@ -1,29 +1,15 @@
-# 🦊 Asistente Deportivo – Creado por Juan Pablo Cruz
+# 🦊 Asistente Deportivo – Juan Pablo Cruz
 
-Este proyecto web no es solo una calculadora:  
-es tu compañero digital para mejorar físicamente, comer mejor y entrenar con propósito.  
-Fue diseñado pensando en quienes buscan destacarse en su deporte, fortalecer su disciplina y transformar sus hábitos.  
-Con estética minimalista, protección personalizada y lógica inteligente, el asistente te guía como si fuera tu entrenador narrativo.
+Tu compañero digital para calcular IMC, descubrir tu biotipo, comer bien y entrenar como un profesional.
 
----
+## 🎯 Características
+- Acceso protegido con código `TRINIFOREVER`.
+- Pide peso, altura, edad, sexo y tipo de cuerpo (ectomorfo, mesomorfo, endomorfo).
+- Elige tu deporte y especialidad técnica; para natación selecciona tipo de nado y actividad.
+- 20 desayunos, 20 almuerzos y 20 cenas disponibles.
+- Recomienda 7 desayunos, 7 almuerzos y 7 cenas adaptados a tu IMC y biotipo.
+- Plan de entrenamiento técnico y sesiones de gym para tu deporte.
+- Mensaje inspirador personalizado.
+- Estética con fondo deportivo celeste, contorno azul marino y texto blanco.
 
-## 🧭 ¿Qué hace este asistente?
-
-- Calcula tu IMC y detecta si necesitas subir, bajar o mantener peso.
-- Recomienda 7 desayunos, 7 almuerzos y 7 cenas a partir de una base de 60 recetas saludables.
-- Sugiere entrenamientos técnicos y sesiones de gimnasio según tu deporte.
-- Te da un mensaje inspirador al final, adaptado a tu disciplina.
-- Protege el acceso con contraseña privada (`TRINIDADFOREVER`).
-- Tiene una estética clara y centrada, con un logo de zorro como ícono y sello visual.
-- Fue creado por **Juan Pablo Cruz** como plataforma personalizable para atletas.
-
----
-
-## 🧬 Estructura del Proyecto
-
-```txt
-asistentedeportivojpc/
-├── login.html           # Página de acceso por contraseña
-├── index.html           # Página principal con formulario y plan personalizado
-├── style.css            # Estilos visuales del sitio
-├── script.js            # Lógica principal de validación, generación
+## 📁 Estructura
