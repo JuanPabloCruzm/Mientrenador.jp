@@ -1,82 +1,61 @@
-/* Reset y base */
+/* Reset */
 * { box-sizing:border-box; margin:0; padding:0; }
 body {
   font-family:sans-serif;
-  background:#f0f4f8;
-  color:#333;
-  line-height:1.5;
+  min-height:100vh;
+  background: url('assets/bg-sport.jpg') center/cover no-repeat, #a1c9f1;
+  color:#fff;
 }
+.container {
+  max-width:600px;
+  margin:1em auto;
+  padding:1.5em;
+  background:rgba(41,70,97,0.8);
+  border:2px solid #294661;
+  border-radius:8px;
+  text-align:center;
+}
+.small { font-size:0.8em; color:#ccc; margin-bottom:0.5em; }
 .hidden { display:none; }
 
-/* Logo en header */
-header {
-  text-align:center;
-  padding:1em 0;
-}
-.logo {
-  width:50px;
-  margin-bottom:0.5em;
-}
-.small {
-  font-size:0.8em;
-  color:#555;
-  margin-top:-0.5em;
-}
-
-/* Centrado en login */
-.centered {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100vh;
-}
-
-/* Tarjetas */
-.card {
-  background:#fff;
-  padding:1.5em;
-  border-radius:8px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-  max-width:400px;
-  margin:1em auto;
-}
-
-/* Formularios */
+/* Formularios y botones */
 input, select, button {
   width:100%;
   padding:0.8em;
-  margin-top:0.6em;
-  border:1px solid #ccc;
+  margin:0.5em 0;
+  border:1px solid #fff;
   border-radius:4px;
+  background:rgba(255,255,255,0.2);
+  color:#fff;
 }
 button {
-  background:#0a9396;
-  color:#fff;
+  background:#294661;
   border:none;
+  font-weight:bold;
   cursor:pointer;
 }
-button:hover { background:#007f83; }
+button:hover { background:#1f3550; }
 
-/* Planes */
-ul { list-style:none; margin-top:0.5em; padding-left:0; }
+/* Listas de planes */
+ul { list-style:none; padding-left:0; margin-top:0.5em; }
 li {
-  background:#e9ecef;
+  background:rgba(255,255,255,0.2);
   margin:0.4em 0;
   padding:0.6em;
   border-radius:4px;
+  text-align:left;
 }
 
 /* Inspiración */
 .inspiration {
   font-style:italic;
-  margin-top:1em;
-  text-align:center;
+  margin:1em 0;
 }
 
 /* Logout */
 #logout {
   background:#ae2012;
-  color:#fff;
-  margin-top:1em;
 }
-#logout:hover { background:#8f1a0f; }
+#logout:hover {
+  background:#8f1a0f;
+}
