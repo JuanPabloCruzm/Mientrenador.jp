@@ -1,9 +1,7 @@
 // recommend.js
 import { breakfasts, lunches, dinners } from './meals.js';
 
-/**
- * Devuelve 7 ítems aleatorios de un array base.
- */
+/** Devuelve 7 elementos aleatorios de un array */
 function pick7(arr) {
   const shuffled = arr.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 7);
