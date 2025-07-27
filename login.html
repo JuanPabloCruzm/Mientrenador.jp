@@ -7,15 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="centered">
-  <div class="card">
+  <div class="container">
     <h2>Acceso Restringido</h2>
-    <p>Introduce tu código</p>
+    <p>Ingresa tu código para continuar</p>
     <input id="code" type="password" placeholder="Código de acceso" />
     <button id="enter">Entrar</button>
   </div>
 
   <script>
-    const ADMIN_CODE = "TRINIDADFOREVER";
+    const ADMIN_CODE = "TRINIFOREVER";
     document.getElementById("enter").onclick = () => {
       if (document.getElementById("code").value.trim() === ADMIN_CODE) {
         localStorage.setItem("authorized","1");
